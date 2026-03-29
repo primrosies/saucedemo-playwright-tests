@@ -1,5 +1,7 @@
 # Automated Tests - SauceDemo
 
+![Playwright Tests](https://github.com/primrosies/saucedemo-playwright-tests/actions/workflows/playwright.yml/badge.svg)
+
 E2E test automation project for [SauceDemo](https://www.saucedemo.com/) using Playwright and TypeScript.
 
 ## What's included
