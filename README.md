@@ -4,13 +4,12 @@
 
 E2E test automation project for [SauceDemo](https://www.saucedemo.com/) using Playwright and TypeScript.
 
-## What's included
+## Test Scenarios
 
-**Login:**
-- Login with valid credentials
-- Error message validation when password is incorrect
+The following scenarios are automated:
 
-**Shopping Cart:**
+- Successful login with valid credentials
+- Login attempt with invalid password
 - Add product to cart
 - Remove product from cart
 
