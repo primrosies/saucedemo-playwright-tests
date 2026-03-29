@@ -1,0 +1,13 @@
+
+# Playwright
+node_modules/
+/.bin/
+/@playwright/
+/@types/
+/playwright-core/
+/playwright/
+/undici-types/
+test-results/
+playwright-report/
+playwright/.cache/
+.DS_Store
