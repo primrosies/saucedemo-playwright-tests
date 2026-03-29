@@ -34,7 +34,7 @@ test.describe('SauceDemo - Login', () => {
 
 test.describe('SauceDemo - Shopping Cart', () => {
 
-    test('deve adicionar produto ao carrinho', async ({ page }) => {
+    test('should add product to cart', async ({ page }) => {
     // Login first
     await page.goto('https://www.saucedemo.com/');
     await page.fill('#user-name', 'standard_user');
