@@ -2,66 +2,66 @@ import { test, expect } from '@playwright/test';
 
 test.describe('SauceDemo - Login', () => {
 
-    test('deve fazer login com sucesso', async ({ page }) => {
-    // Navega pro site
+    test('should successfully login', async ({ page }) => {
+    // Navigate to the website
     await page.goto('https://www.saucedemo.com/');
     
-    // Preenche credenciais
+    // Fill in credentials
     await page.fill('#user-name', 'standard_user');
     await page.fill('#password', 'secret_sauce');
     
-    // Clica no botão de login
+    // Click login button
     await page.click('#login-button');
     
-    // Verifica se chegou na página de produtos
+    // Verify successful redirect to products page
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
     await expect(page.locator('.title')).toHaveText('Products');
     });
 
-    test('deve mostrar erro ao tentar login com senha errada', async ({ page }) => {
+    test('should show error message when password is incorrect', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     
     await page.fill('#user-name', 'standard_user');
-    await page.fill('#password', 'senha_errada');
+    await page.fill('#password', 'wrong_password');
     await page.click('#login-button');
     
-    // Verifica mensagem de erro
+    // Verify if error message is displayed
     await expect(page.locator('[data-test="error"]')).toBeVisible();
     await expect(page.locator('[data-test="error"]')).toContainText('Username and password do not match');
     });
 
 });
 
-test.describe('SauceDemo - Carrinho', () => {
+test.describe('SauceDemo - Shopping Cart', () => {
 
     test('deve adicionar produto ao carrinho', async ({ page }) => {
-    // Faz login primeiro
+    // Login first
     await page.goto('https://www.saucedemo.com/');
     await page.fill('#user-name', 'standard_user');
     await page.fill('#password', 'secret_sauce');
     await page.click('#login-button');
     
-    // Adiciona produto ao carrinho
+    // Add product to cart
     await page.click('[data-test="add-to-cart-sauce-labs-backpack"]');
     
-    // Verifica badge do carrinho
+    // Verify cart badge shows correct count
     await expect(page.locator('.shopping_cart_badge')).toHaveText('1');
     });
 
-    test('deve remover produto do carrinho', async ({ page }) => {
+    test('should remove product from cart', async ({ page }) => {
     // Faz login
     await page.goto('https://www.saucedemo.com/');
     await page.fill('#user-name', 'standard_user');
     await page.fill('#password', 'secret_sauce');
     await page.click('#login-button');
     
-    // Adiciona produto
+    // Add product
     await page.click('[data-test="add-to-cart-sauce-labs-backpack"]');
     
-    // Remove produto
+    // Remove product
     await page.click('[data-test="remove-sauce-labs-backpack"]');
     
-    // Verifica que badge sumiu
+    // Verify badge is no longer visible
     await expect(page.locator('.shopping_cart_badge')).not.toBeVisible();
     });
 

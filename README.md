@@ -14,6 +14,11 @@ E2E test automation project for [SauceDemo](https://www.saucedemo.com/) using Pl
 - Add product to cart
 - Remove product from cart
 
+## Test results
+
+![Test Report](docs/test-report.png)
+
+
 ## How to run
 
 Install dependencies:
