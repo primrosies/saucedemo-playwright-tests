@@ -49,7 +49,7 @@ test.describe('SauceDemo - Shopping Cart', () => {
     });
 
     test('should remove product from cart', async ({ page }) => {
-    // Faz login
+    // Login first
     await page.goto('https://www.saucedemo.com/');
     await page.fill('#user-name', 'standard_user');
     await page.fill('#password', 'secret_sauce');
